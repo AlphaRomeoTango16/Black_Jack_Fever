@@ -1,25 +1,16 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const CardWrapper = styled.div`
-    margin: 20px;
-    width: 20%;
-    height: 80%;
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color: black;
-`
 
 const CardImage = styled.img`
-    height: 100%
-    width: 100%;
+    height: 60%;
+    width: 20%;
+    margin-left: 10px;
 `
 
 function Card({ image }) {
     return (
-        <CardWrapper>
-            <CardImage src={image} />
-        </CardWrapper>
+        <CardImage src={image} />
     )
 }
 

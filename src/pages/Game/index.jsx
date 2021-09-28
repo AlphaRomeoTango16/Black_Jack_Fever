@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { useFetch } from '../../utils/hooks'
+// import { useEffect, useState } from 'react'
 import Card from '../../components/Card'
 
 const GameContainer = styled.div`
@@ -24,30 +25,30 @@ const PlayerDeck = styled.div`
 `
 
 function Game() {
-    // const { data, isLoading, error } = useFetch(
-    //     `https://deckofcardsapi.com/api/deck/new/draw/?count=2`
-    // )
 
-    // const cardsList = data?.cardsList
+    // useEffect(() => {
+    //     fetch(`https://deckofcardsapi.com/api/deck/new/draw/?count=2`)
+    //         .then((response) => response.json()
+    //         .then(({ cards }) => console.log(cards))
+    //         .catch((error) => console.log(error))
+    //     )
+    // }, [])
+    const { data } = useFetch(
+        `https://deckofcardsapi.com/api/deck/new/draw/?count=2`
+    )
+    const cards = data?.cards
 
-    // return (
-    //     <GameContainer>
-    //     {cardsList?.map((cards) => (
-    //         <Card
-    //             image={cards.image}
-    //         />
-    //     ))}
-    //     </GameContainer>
-    // )
     return (
         <GameContainer>
             <CasinoDeck>
-                <Card />
-                <Card />
+            {cards?.map((cards) => (
+                <Card
+                    image={cards.image}
+                />
+            ))}
             </CasinoDeck>
             <PlayerDeck>
-                <Card />
-                <Card />
+
             </PlayerDeck>
         </GameContainer>
     )
