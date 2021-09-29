@@ -29,22 +29,39 @@ const CasinoCount = styled.div`
     font-family: 'Bree Serif', serif;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 10px;
+    padding: 1px;
 `
 
 const PlayerDeck = styled.div`
     margin-top: 20px;
     height: 50%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     border: 1px solid white;    
 `
 
+const PlayerCards = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+`
+
+const PlayerCount = styled.div`
+    background-color: white;
+    width: 10%;
+    font-family: 'Bree Serif', serif;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1px;
+`
 function Game() {
+    
     const { data } = useFetch(
         `https://deckofcardsapi.com/api/deck/new/draw/?count=2`
     )
     const cards = data?.cards
+    const deckId = data?.deck_id
+    console.log(deckId)
 
     function editCardsValue()  {
         return cards?.map(cards => {
@@ -90,19 +107,21 @@ function Game() {
     
     return (
         <GameContainer>
+
             <CasinoDeck>
                 <CasinoCount>Casino score : {casinoScore}</CasinoCount>
                     <CasinoCards>
                         {cards?.map((cards) => (
                             <Card
                                 image={cards.image}
-                                value={updatedValue}
                             />
                         ))}
                     </CasinoCards>    
             </CasinoDeck>
             <PlayerDeck>
-
+                <PlayerCount>Player score : {}</PlayerCount>
+                    <PlayerCards>
+                    </PlayerCards>  
             </PlayerDeck>
         </GameContainer>
     )
