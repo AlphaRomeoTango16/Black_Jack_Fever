@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 
 
 const CardImage = styled.img`
-    height: 60%;
-    width: 20%;
-    margin-left: 10px;
+    height: 200px;
+    width: 150px;
+    padding: 10px;
 `
 
-function Card({ image }) {
+function Card({ image, value }) {
     return (
-        <CardImage src={image} />
+        <CardImage src={image} value={value} />
     )
 }
 

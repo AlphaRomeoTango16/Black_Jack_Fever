@@ -41,7 +41,7 @@ const StartButton = styled.button`
     font-family: 'Bree Serif', serif;
     font-size: 15px;
     :hover{
-
+        box-shadow: inset 5px 5px 15px -5px #000000;
     }
 `
 
