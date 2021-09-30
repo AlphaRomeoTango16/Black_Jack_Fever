@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
+const CardTemplate = styled.div`
+    display: flex;
+`
 
 const CardImage = styled.img`
     height: 200px;
@@ -10,7 +13,9 @@ const CardImage = styled.img`
 
 function Card({ image, value }) {
     return (
-        <CardImage src={image} value={value} />
+        <CardTemplate>
+            <CardImage src={image} value={value} />
+        </CardTemplate>
     )
 }
 
